@@ -1,14 +1,16 @@
-# Phase 4, Lecture 4: Constraints and Validations
+# Phase 4, Lecture 5: Relationships, Association Proxy, and SerializerMixin
 
 ## Lecture Topics
 
-- Constraints
-- Validations
+- db.relationship
+- db.ForeignKey
+- association_proxy
 - SerializerMixin
+- serialize_rules
 
 ## Introduction
 
-In today's lecture, we will talk about Constraints, Validations, and SerializerMixin.
+In today's lecture, we will talk about using db.relationship and db.ForeignKey to create relationships between tables, Association Proxy, and SerializerMixin.
 
 ## Setup
 
@@ -28,7 +30,7 @@ export FLASK_APP=app.py
 export FLASK_RUN_PORT=7000
 ```
 
-6. We will write code in the `models.py` file to implement constraints, validations, and SerializerMixin.
+6. We will write code in the `models.py` file to create relationships between the tables and define our serializer rules.
 
 7. Enter the command `flask run` or `python app.py` in the terminal to run the Flask app (make sure that you are in the `server` directory before running these terminal commands).
 

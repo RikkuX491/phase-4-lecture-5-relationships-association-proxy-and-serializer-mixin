@@ -28,7 +28,10 @@ class Hotels(Resource):
         response_body = []
 
         for hotel in hotels:
-            response_body.append(hotel.to_dict())
+            response_body.append({
+                "id": hotel.id,
+                "name": hotel.name
+            })
 
         return make_response(jsonify(response_body), 200)
 
@@ -63,6 +66,18 @@ class HotelById(Resource):
 
         else:
             response_body = hotel.to_dict()
+            
+            customer_list = []
+            for customer in list(set(hotel.customers)):
+                customer_dictionary = {
+                    "id": customer.id,
+                    "first_name": customer.first_name,
+                    "last_name": customer.last_name
+                }
+                customer_list.append(customer_dictionary)
+            
+            response_body.update({"customers": customer_list})
+
             status = 200
 
         return make_response(jsonify(response_body), status)

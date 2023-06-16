@@ -7,6 +7,7 @@ with app.app_context():
     
     Hotel.query.delete()
     Customer.query.delete()
+    Review.query.delete()
 
     hotels = []
     hotels.append(Hotel(name="Marriott"))

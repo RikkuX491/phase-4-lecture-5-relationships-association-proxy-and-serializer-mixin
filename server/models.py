@@ -73,33 +73,3 @@ class Review(db.Model, SerializerMixin):
 
     def __repr__(self):
         return f"Review # {self.id}: {self.customer.first_name} {self.customer.last_name} left of a review for {self.hotel.name} with a rating of {self.rating}."
-    
-
-# Notes:
-# Customer:
-
-# serialize_rules = ('-reviews.customer’,)
-
-# reviews = db.relationship('Review', back_populates='customer')
-
-#     hotels = association_proxy('reviews', 'hotel',
-#         creator=lambda h: Review(hotel=h))
-
-# Review:
-# serialize_rules = ('-hotel.reviews', '-customer.reviews')
-
-
-# hotel_id = db.Column(db.Integer, db.ForeignKey('hotels.id'))
-#     customer_id = db.Column(db.Integer, db.ForeignKey('customers.id'))
-
-# hotel = db.relationship('Hotel', back_populates='reviews')
-#     customer = db.relationship('Customer', back_populates='reviews')
-
-
-# Hotel:
-# serialize_rules = ('-reviews.hotel’,)
-
-# reviews = db.relationship('Review', back_populates='hotel')
-
-# customers = association_proxy('reviews', 'customer',
-#         creator=lambda c: Review(customer=c))
